@@ -22,3 +22,9 @@ variable "container_registry_enabled" {
 variable "packages_enabled" {
   default = false
 }
+variable "visibility_level" {
+  default = "public"
+}
+variable "pages_access_level" {
+  default = "private"
+}
