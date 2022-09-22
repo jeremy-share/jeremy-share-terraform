@@ -1,0 +1,6 @@
+/.idea/
+dynamic_vars.yml
+/.terraform/
+/plan.*
+/plan-summary.*
+/.terraform.lock.hcl

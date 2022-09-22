@@ -1,0 +1,54 @@
+services:
+  - docker:dind
+
+variables:
+  PLAN: plan.cache
+  PLAN_JSON: plan.json
+  PLAN_SUMMARY: plan-summary.json
+
+stages:
+  - validate
+  - plan
+  - apply
+
+validate:
+  stage: validate
+  retry: 0
+  image: registry.gitlab.com/mage-sauce/dockerization/terraform-docker:ubuntu2010
+  before_script:
+    - doppler run -- bash -c "./bin/init.sh"
+  script:
+    - terraform validate
+
+plan:
+  stage: plan
+  retry: 0
+  image: registry.gitlab.com/mage-sauce/dockerization/terraform-docker:ubuntu2010
+  before_script:
+    - doppler run -- bash -c "./bin/init.sh"
+  script:
+    - shopt -s expand_aliases
+    - alias convert_report="jq -r '([.resource_changes[]?.change.actions?]|flatten)|{\"create\":(map(select(.==\"create\"))|length),\"update\":(map(select(.==\"update\"))|length),\"delete\":(map(select(.==\"delete\"))|length)}'"
+    - doppler run -- bash -c "terraform plan -out=$PLAN -input=false"
+    - doppler run -- bash -c "terraform show --json $PLAN" > $PLAN_JSON
+    - cat $PLAN_JSON | convert_report > $PLAN_SUMMARY
+  artifacts:
+    name: plan
+    paths:
+      - ${PLAN}
+    expire_in: 1 month
+    reports:
+      terraform: $PLAN_SUMMARY
+
+apply:
+  stage: apply
+  retry: 0
+  image: registry.gitlab.com/mage-sauce/dockerization/terraform-docker:ubuntu2010
+  before_script:
+    - doppler run -- bash -c "./bin/init.sh"
+  script:
+    - doppler run -- bash -c "terraform apply -auto-approve -input=false $PLAN"
+  dependencies:
+    - plan
+  only:
+    - master
