@@ -11,9 +11,9 @@ resource "gitlab_project" "project" {
   snippets_enabled = false
   container_registry_enabled = var.container_registry_enabled
   lfs_enabled = false
-  visibility_level = "public"
+  visibility_level = "private"
   merge_method = "merge"
-  only_allow_merge_if_pipeline_succeeds = false
+  only_allow_merge_if_pipeline_succeeds = true
   only_allow_merge_if_all_discussions_are_resolved = true
   shared_runners_enabled = true
   archived = var.archived
