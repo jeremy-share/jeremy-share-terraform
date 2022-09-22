@@ -11,7 +11,7 @@ resource "gitlab_project" "project" {
   snippets_enabled = false
   container_registry_enabled = var.container_registry_enabled
   lfs_enabled = false
-  visibility_level = "private"
+  visibility_level = var.visibility_level
   merge_method = "merge"
   only_allow_merge_if_pipeline_succeeds = true
   only_allow_merge_if_all_discussions_are_resolved = true
@@ -19,7 +19,7 @@ resource "gitlab_project" "project" {
   archived = var.archived
   initialize_with_readme = false
   packages_enabled = var.packages_enabled
-  pages_access_level = "public"
+  pages_access_level = var.pages_access_level
   remove_source_branch_after_merge = true
   squash_option = "default_off"
 }
@@ -47,7 +47,11 @@ resource "github_repository" "repo" {
 
 resource "gitlab_project_mirror" "mirror" {
   project = gitlab_project.project.id
-  url     = replace(github_repository.repo.http_clone_url, "https://", "https://${var.github_sync_in_username}:${var.github_sync_in_password}@")
+  url = replace(
+    github_repository.repo.http_clone_url,
+    "https://",
+    "https://${var.github_sync_in_username}:${var.github_sync_in_password}@"
+  )
   enabled = true
   keep_divergent_refs = true
   only_protected_branches = true
