@@ -21,6 +21,7 @@ resource "gitlab_project" "project" {
   packages_enabled = var.packages_enabled
   pages_access_level = "public"
   remove_source_branch_after_merge = true
+  squash_option = "default_off"
 }
 
 resource "gitlab_branch_protection" "master" {
