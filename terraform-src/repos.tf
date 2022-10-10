@@ -1,10 +1,10 @@
 module "victoria-metrics-full-stack" {
   source = "./modules/repo-shared-synced"
   name = "victoria-metrics-full-stack"
-  description = <<EOT
+  description = <<EOF
 VictoriaMetrics, Grafana, Socket.IO, NodeJS (static frontend), APScheduler, Python, Flask and Telegraf.
-Microservices, Backends, Frontend and Server monitoring for alerting and visuals (graphing).
-EOT
+Microservices (Backends and Frontend) and Server monitoring for alerting and visualizing
+EOF
   gitlab_group_id = gitlab_group.jeremy-share.id
   github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
   github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD

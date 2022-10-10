@@ -35,7 +35,7 @@ resource "gitlab_branch_protection" "master" {
 
 resource "github_repository" "repo" {
   name = var.name
-  description = var.description
+  description = replace(replace(var.description, "\n", " "), "\r", "")
   archived = var.archived
   allow_merge_commit = true
   delete_branch_on_merge = true
