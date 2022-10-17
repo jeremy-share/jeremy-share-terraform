@@ -19,6 +19,15 @@ module "vagrant-ansible-terraform-kubernetes-microk8s-virtualbox" {
   github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
 }
 
+module "camera-to-minio-rabbitmq" {
+  source = "./modules/repo-shared-synced"
+  name = "camera-to-minio-rabbitmq"
+  description = "Camera -> Minio -> RabbitMQ -> Darknet"
+  gitlab_group_id = gitlab_group.jeremy-share.id
+  github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
+  github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+}
+
 module "gitlab-github-sync-test" {
   source = "./modules/repo-shared-synced"
   name = "gitlab-to-github-sync-test"
