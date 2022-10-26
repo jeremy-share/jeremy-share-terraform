@@ -1,3 +1,12 @@
+module "kafka-simple-consumer-producer" {
+  source = "./modules/repo-shared-synced"
+  name = "kafka-simple-consumer-producer"
+  description = "Kafka Simple consumer produce (Pub Sub)"
+  gitlab_group_id = gitlab_group.jeremy-share.id
+  github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
+  github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+}
+
 module "victoria-metrics-full-stack" {
   source = "./modules/repo-shared-synced"
   name = "victoria-metrics-full-stack"
