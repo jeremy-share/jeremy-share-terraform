@@ -1,3 +1,12 @@
+module "terraform-bitbucket-example" {
+  source = "./modules/repo-shared-synced"
+  name = "terraform-bitbucket-example"
+  description = "Terraform Bitbucket Example"
+  gitlab_group_id = gitlab_group.jeremy-share.id
+  github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
+  github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+}
+
 module "rabbitmq-simple-mqtt" {
   source = "./modules/repo-shared-synced"
   name = "rabbitmq-simple-mqtt"
