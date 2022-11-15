@@ -14,7 +14,7 @@ stages:
 validate:
   stage: validate
   retry: 0
-  image: registry.gitlab.com/mage-sauce/dockerization/terraform-docker:ubuntu2204
+  image: registry.gitlab.com/jeremy-open-source/terraform-docker:ubuntu2204
   before_script:
     - doppler run -- bash -c "./bin/init.sh"
   script:
@@ -23,7 +23,7 @@ validate:
 plan:
   stage: plan
   retry: 0
-  image: registry.gitlab.com/mage-sauce/dockerization/terraform-docker:ubuntu2204
+  image: registry.gitlab.com/jeremy-open-source/terraform-docker:ubuntu2204
   before_script:
     - doppler run -- bash -c "./bin/init.sh"
   script:
@@ -43,7 +43,7 @@ plan:
 apply:
   stage: apply
   retry: 0
-  image: registry.gitlab.com/mage-sauce/dockerization/terraform-docker:ubuntu2204
+  image: registry.gitlab.com/jeremy-open-source/terraform-docker:ubuntu2204
   before_script:
     - doppler run -- bash -c "./bin/init.sh"
   script:
