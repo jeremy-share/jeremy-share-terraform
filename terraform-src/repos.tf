@@ -1,3 +1,12 @@
+module "jenkins-docker-agents-java-app" {
+  source = "./modules/repo-shared-synced"
+  name = "jenkins-docker-agents-java-app"
+  description = "An example of how you can use Jenkins Docker agents to build Java apps"
+  gitlab_group_id = gitlab_group.jeremy-share.id
+  github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
+  github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+}
+
 module "redis-streams" {
   source = "./modules/repo-shared-synced"
   name = "redis-streams"
