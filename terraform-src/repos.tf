@@ -1,7 +1,7 @@
-module "jenkins-docker-agents-java-app" {
+module "systemd-ansible-service-deployment-branches" {
   source = "./modules/repo-shared-synced"
-  name = "jenkins-docker-agents-java-app"
-  description = "An example of how you can use Jenkins Docker agents to build Java apps"
+  name = "systemd-ansible-service-deployment"
+  description = "Simple Systemd and Ansible service deployment using branches (auto deploy a basic service)"
   gitlab_group_id = gitlab_group.jeremy-share.id
   github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
   github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
@@ -95,6 +95,15 @@ module "gitlab-github-sync-test" {
   source = "./modules/repo-shared-synced"
   name = "gitlab-to-github-sync-test"
   description = "Testing Gitlab to Github sync"
+  gitlab_group_id = gitlab_group.jeremy-share.id
+  github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
+  github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+}
+
+module "jenkins-docker-agents-java-app" {
+  source = "./modules/repo-shared-synced"
+  name = "jenkins-docker-agents-java-app"
+  description = "An example of how you can use Jenkins Docker agents to build Java apps"
   gitlab_group_id = gitlab_group.jeremy-share.id
   github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
   github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
