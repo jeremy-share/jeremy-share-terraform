@@ -1,7 +1,7 @@
-module "websocket-server-provision" {
+module "websocket-provisioner" {
   source = "./modules/repo-shared-synced"
-  name = "websocket-server-provision"
-  description = "Websocket server provision"
+  name = "websocket-provisioner"
+  description = "Websocket provision example"
   gitlab_group_id = gitlab_group.jeremy-share.id
   github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
   github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
