@@ -5,6 +5,7 @@ module "docker-nmap-loop-container" {
   gitlab_group_id = gitlab_group.jeremy-share.id
   github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
   github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+  pipelines_enabled = true
 }
 
 module "websocket-provisioner" {
