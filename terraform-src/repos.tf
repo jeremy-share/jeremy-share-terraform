@@ -1,3 +1,12 @@
+module "airflow-minio" {
+  source = "./modules/repo-shared-synced"
+  name = "airflow-minio"
+  description = "Airflow Minio example"
+  gitlab_group_id = gitlab_group.jeremy-share.id
+  github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
+  github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+}
+
 module "python-apscheduler-nmap-container" {
   source = "./modules/repo-shared-synced"
   name = "python-apscheduler-nmap-container"
