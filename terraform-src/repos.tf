@@ -1,3 +1,14 @@
+module "bazel-learning" {
+  source = "./modules/repo-shared-synced"
+  name = "bazel-learning"
+  description = "Share of my Bazel learning"
+  gitlab_group_id = gitlab_group.jeremy-share.id
+  github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
+  github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+  pipelines_enabled = true
+  container_registry_enabled = true
+}
+
 module "airflow-minio" {
   source = "./modules/repo-shared-synced"
   name = "airflow-minio"
