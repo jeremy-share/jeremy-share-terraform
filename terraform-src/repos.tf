@@ -1,3 +1,14 @@
+module "okta-learning" {
+  source = "./modules/repo-shared-synced"
+  name = "okta-learning"
+  description = "Share of things I did to learn Okta such as identity providers and service providers"
+  gitlab_group_id = gitlab_group.jeremy-share.id
+  github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
+  github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+  pipelines_enabled = true
+  container_registry_enabled = true
+}
+
 module "bazel-learning" {
   source = "./modules/repo-shared-synced"
   name = "bazel-learning"
