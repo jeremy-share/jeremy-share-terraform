@@ -1,3 +1,13 @@
+module "python-deb" {
+  source = "./modules/repo-shared-synced"
+  name = "python-deb"
+  description = "Python Debian package"
+  gitlab_group_id = gitlab_group.jeremy-share.id
+  github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
+  github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+  pipelines_enabled = true
+}
+
 module "vale-prose-doc-linter" {
   source = "./modules/repo-shared-synced"
   name = "vale-prose-doc-linter"
