@@ -1,3 +1,12 @@
+module "python-key-encryption-string" {
+  source = "./modules/repo-shared-synced"
+  name = "python-key-encryption-string"
+  description = "Encrypting a string using a public and private keys in Python"
+  gitlab_group_id = gitlab_group.jeremy-share.id
+  github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
+  github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+}
+
 module "vagrant-buildkite-server" {
   source = "./modules/repo-shared-synced"
   name = "vagrant-buildkite-server"
