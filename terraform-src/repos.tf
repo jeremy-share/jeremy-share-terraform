@@ -1,3 +1,12 @@
+module "chrome-extension-native-messaging-host-ping-pong" {
+  source = "./modules/repo-shared-synced"
+  name = "chrome-extension-native-messaging-host-ping-pong"
+  description = "Chrome extension with a bidirectional host Python script communication (ping-pong example)"
+  gitlab_group_id = gitlab_group.jeremy-share.id
+  github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
+  github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+}
+
 module "python-key-encryption-string" {
   source = "./modules/repo-shared-synced"
   name = "python-key-encryption-string"
@@ -6,6 +15,7 @@ module "python-key-encryption-string" {
   github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
   github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
 }
+
 
 module "vagrant-buildkite-server" {
   source = "./modules/repo-shared-synced"
