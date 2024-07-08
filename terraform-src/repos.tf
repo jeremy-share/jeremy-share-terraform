@@ -98,6 +98,15 @@ module "python-apscheduler-nmap-container" {
   container_registry_enabled = true
 }
 
+module "websocket-provisioner-ansible-pull" {
+  source = "./modules/repo-shared-synced"
+  name = "websocket-provisioner-ansible-pull"
+  description = "Websocket provision example ansible-pull"
+  gitlab_group_id = gitlab_group.jeremy-share.id
+  github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
+  github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+}
+
 module "websocket-provisioner" {
   source = "./modules/repo-shared-synced"
   name = "websocket-provisioner"
