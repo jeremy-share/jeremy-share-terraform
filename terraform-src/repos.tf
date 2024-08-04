@@ -1,3 +1,12 @@
+module "python-async-gui-app" {
+  source = "./modules/repo-shared-synced"
+  name = "python-async-gui-app"
+  description = "Pyhton Async GUI app"
+  gitlab_group_id = gitlab_group.jeremy-share.id
+  github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
+  github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+}
+
 module "chrome-extension-native-messaging-host-ping-pong" {
   source = "./modules/repo-shared-synced"
   name = "chrome-extension-native-messaging-host-ping-pong"
