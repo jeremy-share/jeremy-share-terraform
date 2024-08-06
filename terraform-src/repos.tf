@@ -1,3 +1,12 @@
+module "pyqt6-tools-designer-docker" {
+  source = "./modules/repo-shared-synced"
+  name = "pyqt6-tools-designer-docker"
+  description = "pyqt6-tools designer Docker example"
+  gitlab_group_id = gitlab_group.jeremy-share.id
+  github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
+  github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
+}
+
 module "python-async-gui-app" {
   source = "./modules/repo-shared-synced"
   name = "python-async-gui-app"
