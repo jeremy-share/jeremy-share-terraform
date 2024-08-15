@@ -1,7 +1,7 @@
 module "python-qt5-gui-app" {
   source = "./modules/repo-shared-synced"
   name = "python-qt5-gui-app"
-  description = "Pyhton Qt5 GUI app"
+  description = "Python Qt5 GUI app"
   gitlab_group_id = gitlab_group.jeremy-share.id
   github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
   github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
