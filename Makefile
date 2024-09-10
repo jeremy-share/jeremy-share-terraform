@@ -17,3 +17,20 @@ clean-local:
 	rm ~/.terraform.d/ -r
 	rm .terraform -r
 	rm .terraform.lock.hcl
+
+init:
+	make terraform-init
+
+plan:
+	make terraform-plan
+
+iplan:
+	make init
+	make plan
+
+apply:
+	make terraform-apply
+
+iapply:
+	make init
+	make apply
