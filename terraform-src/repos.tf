@@ -78,7 +78,7 @@ module "python-deb" {
   gitlab_group_id = gitlab_group.jeremy-share.id
   github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
   github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
-  pipelines_enabled = true
+  builds_access_level = "enabled"
 }
 
 module "vale-prose-doc-linter" {
@@ -88,7 +88,7 @@ module "vale-prose-doc-linter" {
   gitlab_group_id = gitlab_group.jeremy-share.id
   github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
   github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
-  pipelines_enabled = true
+  builds_access_level = "enabled"
 }
 
 module "python-binary-pyinstaller" {
@@ -98,7 +98,7 @@ module "python-binary-pyinstaller" {
   gitlab_group_id = gitlab_group.jeremy-share.id
   github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
   github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
-  pipelines_enabled = true
+  builds_access_level = "enabled"
 }
 
 module "okta-learning" {
@@ -108,8 +108,8 @@ module "okta-learning" {
   gitlab_group_id = gitlab_group.jeremy-share.id
   github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
   github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
-  pipelines_enabled = true
-  container_registry_enabled = true
+  builds_access_level = "enabled"
+  container_registry_access_level = "enabled"
 }
 
 module "bazel-learning" {
@@ -119,8 +119,8 @@ module "bazel-learning" {
   gitlab_group_id = gitlab_group.jeremy-share.id
   github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
   github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
-  pipelines_enabled = true
-  container_registry_enabled = true
+  builds_access_level = "enabled"
+  container_registry_access_level = "enabled"
 }
 
 module "airflow-minio" {
@@ -269,5 +269,5 @@ module "jeremy-share-terraform" {
   github_sync_in_username = var.GITHUB_SYNC_IN_USERNAME
   github_sync_in_password = var.GITHUB_SYNC_IN_PASSWORD
   packages_enabled = true
-  pipelines_enabled = true
+  builds_access_level = "enabled"
 }

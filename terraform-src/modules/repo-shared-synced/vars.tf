@@ -13,11 +13,11 @@ variable "archived" {
 variable "merge_requests_enabled" {
   default = true
 }
-variable "pipelines_enabled" {
-  default = false
+variable "builds_access_level" {
+  default = "disabled"
 }
-variable "container_registry_enabled" {
-  default = false
+variable "container_registry_access_level" {
+  default = "disabled"
 }
 variable "packages_enabled" {
   default = false

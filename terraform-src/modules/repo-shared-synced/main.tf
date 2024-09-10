@@ -6,10 +6,10 @@ resource "gitlab_project" "project" {
   request_access_enabled = false
   issues_enabled = var.issues_enabled
   merge_requests_enabled = var.merge_requests_enabled
-  pipelines_enabled = var.pipelines_enabled
+  builds_access_level = var.builds_access_level
   wiki_enabled = false
   snippets_enabled = false
-  container_registry_enabled = var.container_registry_enabled
+  container_registry_access_level = var.container_registry_access_level
   lfs_enabled = false
   visibility_level = var.visibility_level
   merge_method = "merge"
@@ -43,6 +43,7 @@ resource "github_repository" "repo" {
   allow_rebase_merge = true
   allow_squash_merge = false
   archive_on_destroy = false
+  vulnerability_alerts = false
 }
 
 resource "gitlab_project_mirror" "mirror" {
